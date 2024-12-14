@@ -1,0 +1,25 @@
+get_league:
+  path: /league/{id}
+  controller: App\Controller\LeagueController::getLeague
+  methods: GET
+  requirements:
+    id: '\d+'
+
+delete_league:
+  path: /league/{id}
+  controller: App\Controller\LeagueController::deleteLeague
+  methods: DELETE
+  requirements:
+    id: '\d+'
+
+patch_league:
+  path: /league/{id}
+  controller: App\Controller\LeagueController::patchLeague
+  methods: PATCH
+  requirements:
+    id: '\d+'
+
+post_league:
+  path: /league
+  controller: App\Controller\LeagueController::postLeague
+  methods: POST
