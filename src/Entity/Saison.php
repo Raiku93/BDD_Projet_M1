@@ -65,11 +65,18 @@ class Saison
     #[Groups(['saison:read','league:read'])]
     private Collection $saisonArbitres;
 
+    /**
+     * @var Collection<int, InscriptionOfficiel>
+     */
+    #[ORM\OneToMany(targetEntity: InscriptionOfficiel::class, mappedBy: 'saison')]
+    private Collection $inscriptionOfficiels;
+
     public function __construct()
     {
         $this->inscriptions = new ArrayCollection();
         $this->journees = new ArrayCollection();
         $this->saisonArbitres = new ArrayCollection();
+        $this->inscriptionOfficiels = new ArrayCollection();
     }
 
 
@@ -236,6 +243,36 @@ class Saison
             // set the owning side to null (unless already changed)
             if ($saisonArbitre->getSaison() === $this) {
                 $saisonArbitre->setSaison(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, InscriptionOfficiel>
+     */
+    public function getInscriptionOfficiels(): Collection
+    {
+        return $this->inscriptionOfficiels;
+    }
+
+    public function addInscriptionOfficiel(InscriptionOfficiel $inscriptionOfficiel): static
+    {
+        if (!$this->inscriptionOfficiels->contains($inscriptionOfficiel)) {
+            $this->inscriptionOfficiels->add($inscriptionOfficiel);
+            $inscriptionOfficiel->setSaison($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscriptionOfficiel(InscriptionOfficiel $inscriptionOfficiel): static
+    {
+        if ($this->inscriptionOfficiels->removeElement($inscriptionOfficiel)) {
+            // set the owning side to null (unless already changed)
+            if ($inscriptionOfficiel->getSaison() === $this) {
+                $inscriptionOfficiel->setSaison(null);
             }
         }
 

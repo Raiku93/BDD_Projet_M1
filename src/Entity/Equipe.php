@@ -43,11 +43,18 @@ class Equipe
     #[ORM\OneToMany(targetEntity: Selection::class, mappedBy: 'equipe')]
     private Collection $selections;
 
+    /**
+     * @var Collection<int, InscriptionOfficiel>
+     */
+    #[ORM\OneToMany(targetEntity: InscriptionOfficiel::class, mappedBy: 'equipe')]
+    private Collection $inscriptionOfficiels;
+
     public function __construct()
     {
         $this->inscriptions = new ArrayCollection();
         $this->matchs = new ArrayCollection();
         $this->selections = new ArrayCollection();
+        $this->inscriptionOfficiels = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -175,6 +182,36 @@ class Equipe
             // set the owning side to null (unless already changed)
             if ($selection->getEquipe() === $this) {
                 $selection->setEquipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, InscriptionOfficiel>
+     */
+    public function getInscriptionOfficiels(): Collection
+    {
+        return $this->inscriptionOfficiels;
+    }
+
+    public function addInscriptionOfficiel(InscriptionOfficiel $inscriptionOfficiel): static
+    {
+        if (!$this->inscriptionOfficiels->contains($inscriptionOfficiel)) {
+            $this->inscriptionOfficiels->add($inscriptionOfficiel);
+            $inscriptionOfficiel->setEquipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscriptionOfficiel(InscriptionOfficiel $inscriptionOfficiel): static
+    {
+        if ($this->inscriptionOfficiels->removeElement($inscriptionOfficiel)) {
+            // set the owning side to null (unless already changed)
+            if ($inscriptionOfficiel->getEquipe() === $this) {
+                $inscriptionOfficiel->setEquipe(null);
             }
         }
 

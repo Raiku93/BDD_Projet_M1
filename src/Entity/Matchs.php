@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\MatchStatus;
 use App\Repository\MatchsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -45,6 +46,9 @@ class Matchs
      */
     #[ORM\OneToMany(targetEntity: MatchArbitre::class, mappedBy: 'match')]
     private Collection $matchArbitres;
+
+    #[ORM\Column(enumType: MatchStatus::class)]
+    private ?MatchStatus $status = null;
 
     public function __construct()
     {
@@ -185,6 +189,18 @@ class Matchs
                 $matchArbitre->setMatch(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatus(): ?MatchStatus
+    {
+        return $this->status;
+    }
+
+    public function setStatus(MatchStatus $status): static
+    {
+        $this->status = $status;
 
         return $this;
     }
