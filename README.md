@@ -3,7 +3,7 @@
 
 Ce projet est une bases de données de **gestion d'un championnat de football**, incluant la gestion des joueurs, équipes, matchs, arbitres, saisons, et statistiques.
 
-Nous avons décidé de choisir ce projet car, ayant chacun propoer un domaine d'application pour ce projet, nous avons estimé que ce domaine d'application pour plusieurs raisons :
+Nous avons décidé de choisir ce projet car, ayant chacun proposer un domaine d'application pour ce projet, nous avons estimé que ce domaine d'application était le meilleur pour plusieurs raisons :
 
 * **Sujet compréhensible par un grand nombre de personne.**
 * **Le niveau de difficulté (nous l'avons estimé à 3, 3 étant la plus grande).**
@@ -68,3 +68,8 @@ Les différents scripts SQL sont au sein du **dossier SQL**, voici les étapes d
 
 * **createDatabase.sql**
 * **functionsAndTrigger.sql**
+
+##### Commandes a effectué pour cloner la bdd
+
+* **\\i chemin_du_fichier.sql**
+
