@@ -14,9 +14,6 @@ class InscriptionOfficiel
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $nbOfficiel = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
@@ -32,18 +29,6 @@ class InscriptionOfficiel
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNbOfficiel(): ?int
-    {
-        return $this->nbOfficiel;
-    }
-
-    public function setNbOfficiel(int $nbOfficiel): static
-    {
-        $this->nbOfficiel = $nbOfficiel;
-
-        return $this;
     }
 
     public function getDate(): ?\DateTimeInterface
