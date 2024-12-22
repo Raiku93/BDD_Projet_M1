@@ -71,7 +71,7 @@ CREATE TABLE inscription (
     equipe_id integer REFERENCES equipe (id),
     saison_id integer REFERENCES saison (id),
     date date NOT NULL,
-    date_fin date
+    fin date
 );
 
 CREATE TABLE officiel (
@@ -85,7 +85,6 @@ CREATE TABLE inscription_officiel (
     officiel_id integer REFERENCES officiel (id),
     equipe_id integer REFERENCES equipe (id),
     saison_id integer REFERENCES saison (id),
-    nb_officiel integer NOT NULL,
     date date NOT NULL
 );
 
