@@ -1,17 +1,3 @@
-DROP TABLE IF EXISTS match_arbitre;
-DROP TABLE IF EXISTS selection;
-DROP TABLE IF EXISTS inscription_officiel;
-DROP TABLE IF EXISTS saison_arbitre;
-DROP TABLE IF EXISTS matchs;
-DROP TABLE IF EXISTS journee;
-DROP TABLE IF EXISTS inscription;
-DROP TABLE IF EXISTS indisponibilite;
-DROP TABLE IF EXISTS saison;
-DROP TABLE IF EXISTS equipe;
-DROP TABLE IF EXISTS joueur;
-DROP TABLE IF EXISTS arbitre;
-DROP TABLE IF EXISTS officiel;
-DROP TABLE IF EXISTS league;
 
 
 CREATE TABLE arbitre (
@@ -84,7 +70,8 @@ CREATE TABLE inscription (
     joueur_id integer REFERENCES joueur (id),
     equipe_id integer REFERENCES equipe (id),
     saison_id integer REFERENCES saison (id),
-    date date NOT NULL
+    date date NOT NULL,
+    date_fin date
 );
 
 CREATE TABLE officiel (
