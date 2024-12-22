@@ -62,12 +62,16 @@ Le **port par défaut pour PostgreSQL est 5432**, si vous l'avez changé veuille
 * **php bin/console doctrine:schema:update --force** : crée automatiquement les tables en se basant sur les entités.
 * **symfony console doctrine:fixtures:load** : Génère les insertions que nous avons défini.
 
-### Utilisation avec PostgreSQL (en ligne de commande ou l'interface graphique)
+### Utilisation avec PostgreSQL (en ligne de commande ou avec l'interface graphique)
 
-Les différents scripts SQL sont au sein du **dossier SQL**, voici les étapes d'éxécutions :
+Pour les données, nous vous conseillons vivement d'utiliser le fichier SQL et non les insertions définit à travers symfony qui est moins complet.
 
-* **createDatabase.sql**
-* **functionsAndTrigger.sql**
+Les différents scripts SQL se trouvent au sein du **dossier SQL**, voici les étapes d'éxécutions :
+
+* **GenerationsTables.sql**
+* **GenerationsDonnees.sql**
+* **GenerationsFonctionsEtTriggers.sql**
+
 
 ##### Commandes a effectué pour cloner la bdd
 
