@@ -164,7 +164,8 @@ final class Version20241221170448 extends AbstractMigration
             RETURN NEW;
         END;
         $$ LANGUAGE plpgsql;
-
+        ");
+        $this->addSql("
         CREATE TRIGGER check_equipes_differentes_match
         BEFORE INSERT OR UPDATE ON matchs
         FOR EACH ROW
@@ -197,7 +198,8 @@ final class Version20241221170448 extends AbstractMigration
             RETURN NEW; 
         END;
         $$ LANGUAGE plpgsql;
-
+         ");
+        $this->addSql("
         CREATE TRIGGER trigger_verifier_joueur_disponible
         BEFORE INSERT OR UPDATE ON selection
         FOR EACH ROW
