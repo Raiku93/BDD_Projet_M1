@@ -71,6 +71,9 @@ final class Version20241217204329 extends AbstractMigration
     END;
     $$ LANGUAGE plpgsql;
 
+    ");
+    $this->addSql("
+
     CREATE TRIGGER trigger_verifier_joueur_non_selectionne
     BEFORE INSERT OR UPDATE ON selection
     FOR EACH ROW
@@ -99,12 +102,15 @@ final class Version20241217204329 extends AbstractMigration
     RETURN NEW;
     END;
     $$ LANGUAGE plpgsql;
+    ");
+    $this->addSql("
 
     CREATE TRIGGER trigger_verifier_nombre_joueurs_selectionnes
     AFTER INSERT OR UPDATE ON selection
     FOR EACH ROW
     EXECUTE FUNCTION verifier_nombre_joueurs_selectionnes();
     ");
+    
      // fonction qui retourne les statistiques d'une equipe pour une saison
     $this->addSql("
     CREATE OR REPLACE FUNCTION statistiques_equipe_saison(p_saison_id INTEGER, p_equipe_id INTEGER)

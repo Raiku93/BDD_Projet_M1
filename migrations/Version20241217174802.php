@@ -25,7 +25,7 @@ final class Version20241217174802 extends AbstractMigration
             RETURNS text AS
             \$\$ 
             BEGIN 
-                RETURN 'Hello, World!'; =
+                RETURN 'Hello, World!'; 
             END;
             \$\$ LANGUAGE plpgsql;
         ");
