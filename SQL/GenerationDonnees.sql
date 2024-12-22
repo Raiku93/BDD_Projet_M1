@@ -1441,7 +1441,7 @@ INSERT INTO matchs (id, journee_id, equipe1_id, equipe2_id, score_equipe1, score
 INSERT INTO matchs (id, journee_id, equipe1_id, equipe2_id, score_equipe1, score_equipe2, date, status) VALUES (299, 196, 5, 61, 2, 3, '2023-01-15', 'En cours');
 INSERT INTO matchs (id, journee_id, equipe1_id, equipe2_id, score_equipe1, score_equipe2, date, status) VALUES (300, 11, 91, 3, 3, 1, '2023-01-27', 'Annulé');
 
--- Data for inscription
+-- Data for inscription v
 INSERT INTO inscription (id, joueur_id, equipe_id, saison_id, date, fin) VALUES (1, 490, 65, 1, '2020-11-14', '2021-11-14');
 INSERT INTO inscription (id, joueur_id, equipe_id, saison_id, date, fin) VALUES (2, 113, 28, 4, '2020-05-10', '2021-05-10');
 INSERT INTO inscription (id, joueur_id, equipe_id, saison_id, date, fin) VALUES (3, 50, 36, 5, '2021-03-30', '2022-03-30');
