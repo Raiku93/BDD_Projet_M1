@@ -347,7 +347,8 @@ CREATE OR REPLACE FUNCTION matchs_officie_par_arbitre(id_arbitre INT)
                 equipe2_id INT,
                 score_equipe1 INT,
                 score_equipe2 INT,
-                date_match DATE
+                date DATE,
+                status varchar
             ) AS $$
             BEGIN
             -- on retourne la requête qu'on effectue
